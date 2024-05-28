@@ -1,17 +1,33 @@
-import { tgCatcher } from "./catcher"
-import dotenv from "dotenv"
-// import http from "http"
+type TGCatcher = (fn: () => Promise<any> | any, options: CatcherOptions) => Promise<void>
+type CatcherOptions = { chatId: number; global?: boolean }
 
-dotenv.config({ path: ".env" })
-
-const main = async () => {
-  const fun = async () => {
-    throw new Error("some error")
+export const tgCatcher: TGCatcher = async (fn, { chatId, global = false }) => {
+  const sendLog = async (error: unknown) => {
+    await fetch("https://telegramreports.onrender.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chatId,
+        text: "```\n" + (error instanceof Error ? error.stack ?? error : error) + "\n```",
+      }),
+    }).catch(console.error)
   }
-  await fun()
+
+  if (global) {
+    process.on("unhandledRejection", (reason) => {
+      console.error(reason)
+      sendLog(reason)
+    })
+    process.on("uncaughtException", (error) => {
+      console.error(error)
+      sendLog(error)
+    })
+  }
+
+  try {
+    await fn()
+  } catch (error) {
+    console.error(error)
+    sendLog(error)
+  }
 }
-
-tgCatcher(main, { chatId: 1419377014, global: true })
-
-// const server = http.createServer((req, res) => res.end("ok"))
-// server.listen(3001)

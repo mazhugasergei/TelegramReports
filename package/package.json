@@ -1,5 +1,5 @@
 {
-  "name": "tgcatcher",
+  "name": "tgreports",
   "version": "0.0.0",
   "description": "Catches errors and sends them to your Telegram.",
   "main": "index.js",
@@ -12,10 +12,9 @@
   "author": "Mazhuga Sergei",
   "scripts": {
     "dev": "bun x nodemon src/index.ts",
-    "build": "bun x tsc"
+    "build": "bun x tsc && cp README.md dist/ && cp package.json dist/"
   },
   "devDependencies": {
-    "@types/node": "^20.12.12",
     "bun": "^1.1.10",
     "nodemon": "^3.1.1",
     "typescript": "^5.4.5"
