@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    /* Base */
+    "target": "ES6",
+    "module": "NodeNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Output */
+    "declaration": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "downlevelIteration": true, // Ensure down-level iteration for ES3/ES5 targets.
+
+    /* Additional Checks */
+    "incremental": true // Enable incremental compilation for faster rebuilds.
+  },
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist"]
+}
