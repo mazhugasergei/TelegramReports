@@ -1,5 +1,8 @@
 import { tgCatcher } from "./catcher"
+import dotenv from "dotenv"
 // import http from "http"
+
+dotenv.config({ path: ".env" })
 
 const main = async () => {
   const fun = async () => {

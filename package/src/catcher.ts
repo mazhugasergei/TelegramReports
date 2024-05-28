@@ -3,7 +3,7 @@ type CatcherOptions = { chatId: number; global?: boolean }
 
 export const tgCatcher: TGCatcher = async (fn, { chatId, global = false }) => {
   const sendLog = async (error: unknown) => {
-    await fetch("http://localhost", {
+    await fetch("https://telegramreports.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
