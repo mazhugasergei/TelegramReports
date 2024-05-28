@@ -34,6 +34,10 @@ bot.onText(/\/chatid/, (msg) => {
 const app = express()
 app.use(express.json())
 
+app.get("/", (req, res) => {
+  res.send("Hello World!")
+})
+
 app.post("/", async (req, res) => {
   const { chatId, text } = req.body
   const result = await fetch("https://api.telegram.org/bot" + process.env.BOT_TOKEN + "/sendMessage", {
@@ -46,6 +50,6 @@ app.post("/", async (req, res) => {
   res.send(result)
 })
 
-app.listen(3000, () => {
-  console.log("listening on port 3000")
+app.listen(80, () => {
+  console.log("listening on port 80")
 })
