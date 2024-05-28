@@ -22,6 +22,6 @@
     /* Additional Checks */
     "incremental": true // Enable incremental compilation for faster rebuilds.
   },
-  "include": ["src", "tests"],
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
