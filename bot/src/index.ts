@@ -33,8 +33,12 @@ bot.onText(/\/id/, (msg) => {
 })
 
 // set webhook
-const webhookUrl = `https://telegramreports.onrender.com`
+const webhookUrl = `https://telegramreports.onrender.com/bot${process.env.BOT_TOKEN}`
 bot.setWebHook(webhookUrl)
+
+bot.getWebHookInfo().then((info) => {
+  console.log(info)
+})
 
 /*  Server  */
 
