@@ -24,7 +24,7 @@ bot.onText(/\/start/, (msg) => {
   bot.sendMessage(chatId, `Welcome to the bot!\nYour ID: ${chatId}\n\n${commandsList}`)
 })
 
-bot.onText(/\/chatid/, (msg) => {
+bot.onText(/\/id/, (msg) => {
   const chatId = msg.chat.id
   bot.sendMessage(chatId, `Your ID: ${chatId}`)
 })
