@@ -1,57 +1,42 @@
 # Telegram Catcher
 
-Telegram Catcher is an [NPM package](http://npmjs.com/package/tgcatcher) that catches errors and sends them to your Telegram.
+Telegram Catcher catches errors and sends them to your Telegram.
 
-# Start
+## Get Started
 
-In Telegram find [@mazhugasergei_bot](https://t.me/mazhugasergei_bot) and get Chat ID (123456789 for example).
+In Telegram message [@tgcatcherbot](https://t.me/tgcatcherbot) and get your ID (123456789 for example).
 
-# Usage
+## Usage
 
-## Function scope
+### Errors Sender
 
-Catch errors thrown inside a specific function.
+Used to manually send errors logs.
 
 ```js
-const main = () => {
-  throw new Error("some error")
-}
-
-// OR
-
-const main = async () => {
-  throw new Error("some error")
-}
-
-// OR
-
-const main = async () => {
-  const fun = () => {
-    throw new Error("some error")
-  }
-  fun()
-}
-
-// OR
-
-const main = async () => {
-  const fun = async () => {
-    throw new Error("some error")
-  }
-  await fun()
-}
-
-// etc.
-
-tgCatcher(main, { chatId: 123456789 })
+sendError(new Error("error sender"), { userId: 123456789 })
 ```
 
-## Global scope
+## Function Scope
+
+Catch errors thrown in the top layer of a specific function. **Does not** include errors thrown by nested functions and async functions used without `await`, so remember to handle them.
+
+```js
+const fun = () => {
+  throw new Error("function scope error")
+}
+functionScopeCatcher(fun, { userId: 123456789 }, { log: true, crash: false })
+```
+
+## Global Scope
 
 Catches all unhandled errors/exceptions of the process.
 
 ```js
-tgCatcher(() => {}, { chatId: 123456789, global: true })
+// subscribe
+globalScopeCatcher({ enable: true, userId: 123456789 }, { log: true, crash: false })
 
-throw new Error("some error")
+throw new Error("global scope error")
+
+// unsubscribe
+globalScopeCatcher({ enable: false })
 ```
