@@ -52,4 +52,6 @@ Catches all unhandled errors/exceptions of the process.
 
 ```js
 tgCatcher(() => {}, { chatId: 123456789, global: true })
+
+throw new Error("some error")
 ```
