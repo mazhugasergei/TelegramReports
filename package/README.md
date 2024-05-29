@@ -4,7 +4,7 @@ Telegram Catcher catches errors and sends them to your Telegram.
 
 ## Get Started
 
-In Telegram message [@tgcatcherbot](https://t.me/tgcatcherbot) and get your ID (123456789 for example).
+In Telegram message to [@tgcatcherbot](https://t.me/tgcatcherbot) and get your ID (123456789 for example).
 
 ## Usage
 
@@ -13,7 +13,8 @@ In Telegram message [@tgcatcherbot](https://t.me/tgcatcherbot) and get your ID (
 Used to manually send errors logs.
 
 ```js
-sendError(new Error("error sender"), { userId: 123456789 })
+const error = new Error("error sender")
+sendError(error, { userId: 123456789 })
 ```
 
 ### Function Scope
