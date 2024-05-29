@@ -21,7 +21,7 @@ bot.setMyCommands(commands)
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id
   const commandsList = commands.map(({ command, description }) => command + " - " + description).join("\n")
-  bot.sendMessage(chatId, `Welcome to the bot!\Your ID: ${chatId}\n\n${commandsList}`)
+  bot.sendMessage(chatId, `Welcome to the bot!\nYour ID: ${chatId}\n\n${commandsList}`)
 })
 
 bot.onText(/\/chatid/, (msg) => {
