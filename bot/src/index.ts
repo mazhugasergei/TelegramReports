@@ -9,6 +9,7 @@ if (!process.env.BOT_TOKEN) throw new Error("BOT_TOKEN is required")
 
 const bot = new TelegramBot(process.env.BOT_TOKEN)
 
+// set commands
 const commands = [
   {
     command: "/id",
@@ -17,6 +18,8 @@ const commands = [
 ]
 
 bot.setMyCommands(commands)
+
+// set replies
 
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id
@@ -28,6 +31,10 @@ bot.onText(/\/id/, (msg) => {
   const chatId = msg.chat.id
   bot.sendMessage(chatId, `Your ID: ${chatId}`)
 })
+
+// set webhook
+const webhookUrl = `https://telegramreports.onrender.com`
+bot.setWebHook(webhookUrl)
 
 /*  Server  */
 
