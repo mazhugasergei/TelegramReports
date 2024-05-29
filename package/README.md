@@ -16,7 +16,7 @@ Used to manually send errors logs.
 sendError(new Error("error sender"), { userId: 123456789 })
 ```
 
-## Function Scope
+### Function Scope
 
 Catch errors thrown in the top layer of a specific function. **Does not** include errors thrown by nested functions and async functions used without `await`, so remember to handle them.
 
@@ -27,7 +27,7 @@ const fun = () => {
 functionScopeCatcher(fun, { userId: 123456789 }, { log: true, crash: false })
 ```
 
-## Global Scope
+### Global Scope
 
 Catches all unhandled errors/exceptions of the process.
 
