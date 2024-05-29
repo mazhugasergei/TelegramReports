@@ -36,10 +36,6 @@ bot.onText(/\/id/, (msg) => {
 const webhookUrl = `https://telegramreports.onrender.com/bot${process.env.BOT_TOKEN}`
 bot.setWebHook(webhookUrl)
 
-bot.getWebHookInfo().then((info) => {
-  console.log(info)
-})
-
 /*  Server  */
 
 const app = express()
