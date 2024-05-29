@@ -1,6 +1,6 @@
 {
   "name": "tgreports",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Catches errors and sends them to your Telegram.",
   "main": "index.js",
   "keywords": [
