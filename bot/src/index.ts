@@ -9,32 +9,12 @@ if (!process.env.BOT_TOKEN) throw new Error("BOT_TOKEN is required")
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true })
 
-// set commands
-const commands = [
-  {
-    command: "/id",
-    description: "Your ID",
-  },
-]
-
-bot.setMyCommands(commands)
-
 // set replies
 
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id
-  const commandsList = commands.map(({ command, description }) => command + " - " + description).join("\n")
-  bot.sendMessage(chatId, `Welcome to the bot!\nYour ID: ${chatId}\n\n${commandsList}`)
+  bot.sendMessage(chatId, `Welcome to the bot!\nYour ID: ${chatId}`)
 })
-
-bot.onText(/\/id/, (msg) => {
-  const chatId = msg.chat.id
-  bot.sendMessage(chatId, `Your ID: ${chatId}`)
-})
-
-// // set webhook
-// const webhookUrl = `https://telegramreports.onrender.com/bot${process.env.BOT_TOKEN}`
-// bot.setWebHook(webhookUrl)
 
 /*  Server  */
 
