@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 })
 
 app.get("/", (req, res) => {
+  console.log("GET /")
   res.send("Hello World!")
 })
 
@@ -65,4 +66,7 @@ app.post("/", async (req, res) => {
 
 app.listen(80, () => {
   console.log("listening on port 80")
+  setInterval(() => {
+    fetch("https://telegramreports.onrender.com")
+  }, 5000)
 })
