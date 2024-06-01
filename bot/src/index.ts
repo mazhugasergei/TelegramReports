@@ -48,7 +48,6 @@ app.use((req, res, next) => {
 })
 
 app.get("/", (req, res) => {
-  console.log("GET /")
   res.send("Hello World!")
 })
 
