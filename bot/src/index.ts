@@ -68,5 +68,5 @@ app.listen(80, () => {
   console.log("listening on port 80")
   setInterval(() => {
     fetch("https://telegramreports.onrender.com")
-  }, 5000)
+  }, 60000)
 })
