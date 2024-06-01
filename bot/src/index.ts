@@ -40,6 +40,9 @@ bot.onText(/\/id/, (msg) => {
 
 const app = express()
 app.use(express.json())
+app.use((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
+})
 
 app.get("/", (req, res) => {
   res.send("Hello World!")
