@@ -14,10 +14,11 @@
   ],
   "author": "Mazhuga Sergei",
   "scripts": {
-    "dev": "npx nodemon src/index.ts",
-    "build": "npx tsc && cp README.md dist/ && cp package.json dist/"
+    "dev": "nodemon src/index.ts",
+    "build": "tsc && cp README.md dist/ && cp package.json dist/"
   },
   "devDependencies": {
+    "@types/node": "^20.14.1",
     "nodemon": "^3.1.1",
     "typescript": "^5.4.5"
   }
