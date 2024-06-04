@@ -33,11 +33,5 @@ functionScopeCatcher(fun, { userId: 123456789 }, { log: true, crash: false })
 Catches all unhandled errors/exceptions of the process.
 
 ```js
-// subscribe
-globalScopeCatcher({ enable: true, userId: 123456789 }, { log: true, crash: false })
-
-throw new Error("global scope error")
-
-// unsubscribe
-globalScopeCatcher({ enable: false })
+globalScopeCatcher({ userId: 123456789 }, { log: true, crash: false })
 ```
