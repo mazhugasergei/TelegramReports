@@ -73,6 +73,9 @@ export async function globalScopeCatcher(
 
 // const userId = 1419377014
 
+// // message sender
+// sendMessage("message sender", { userId })
+
 // // error sender
 // sendError(new Error("error sender"), { userId })
 
@@ -80,7 +83,7 @@ export async function globalScopeCatcher(
 // const fun = () => {
 //   throw new Error("function scope error")
 // }
-// functionScopeCatcher<string>(fun, { userId }, { log: true, crash: false })
+// functionScopeCatcher<string>(fun, { userId }, { log: true, crash: false }).then(console.log)
 
 // // async function
 // const asyncFun = async () => {

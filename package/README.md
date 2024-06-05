@@ -1,6 +1,6 @@
-# Telegram Catcher
+# Telegram Reports
 
-Telegram Catcher catches errors and sends them to your Telegram.
+Telegram Reports catches errors and sends them to your Telegram.
 
 ## Get Started
 
@@ -8,9 +8,17 @@ In Telegram message to [@tgcatcherbot](https://t.me/tgcatcherbot) and get your I
 
 ## Usage
 
+### Message Sender
+
+Use to manually send messages.
+
+```js
+sendMessage("message sender", { userId: 123456789 })
+```
+
 ### Errors Sender
 
-Used to manually send errors logs.
+Use to manually send errors logs.
 
 ```js
 const error = new Error("error sender")
