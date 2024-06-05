@@ -1,12 +1,23 @@
 type Function<T = unknown> = (...args: any[]) => Promise<T> | T
 
-export default { sendError, functionScopeCatcher, globalScopeCatcher }
+export default { sendMessage, sendError, functionScopeCatcher, globalScopeCatcher }
+
+const api = "https://telegramreports.onrender.com"
+
+export function sendMessage(text: string, config: { userId: number }) {
+  const { userId } = config
+  return fetch(api, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId, text }),
+  })
+}
 
 /* Error sender */
 
 export function sendError(error: unknown, config: { userId: number }) {
   const { userId } = config
-  return fetch("https://telegramreports.onrender.com", {
+  return fetch(api, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
